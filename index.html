@@ -72,7 +72,7 @@
 
 
                 <h4 class="text-white mt-20 mb-20">
-                    A unified learning resource in computation managed and updated by a dynamic multi-agent AI system.
+                    A unified learning resources in computation - managed and updated by a dynamic multi-agent AI system.
                 </h4>
                 <p class="text-white mb-4">
                     Master the foundational algorithms, advanced simulations, machine learning, and quantum computing to model and solve challenges across physics, biology, finance and beyond.
@@ -124,6 +124,42 @@
     </div>
   </div>
 </section>
+
+<!----------------------------- Docs Counters / Stats ------------------------------>
+
+<section id="stats" class="stats-section">
+    <div class="overlay"></div>
+
+    <div class="container">
+        <div class="row text-center">
+
+            <div class="col-md-3 stat-box">
+                <span class="counter-number js-counter" data-to="14678">0</span>
+                <span class="counter-label">GRAPH NODES</span>
+            </div>
+
+            <div class="col-md-3 stat-box">
+                <span class="counter-number js-counter" data-to="534">0</span>
+                <span class="counter-label">WORKBOOKS</span>
+            </div>
+
+            <div class="col-md-3 stat-box">
+                <span class="counter-number js-counter" data-to="1526">0</span>
+                <span class="counter-label">CODEBOOKS</span>
+            </div>
+
+            <div class="col-md-3 stat-box">
+                <span class="counter-number js-counter" data-to="12326">0</span>
+                <span class="counter-label">REFERENCES</span>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+
 
 
 <!----------------------------- Volumes I-IV Showcase ------------------------------>
@@ -256,6 +292,43 @@
     </div>
   </div>
 </section>
+
+
+
+
+
+<!----------------------------- Agents Counters / Stats ------------------------------>
+
+<section id="stats" class="stats-section">
+    <div class="overlay"></div>
+
+    <div class="container">
+        <div class="row text-center">
+
+            <div class="col-md-3 stat-box">
+                <span class="counter-number js-counter" data-to="200">0</span>
+                <span class="counter-label">CHAPTERS</span>
+            </div>
+
+            <div class="col-md-3 stat-box">
+                <span class="counter-number js-counter" data-to="500">0</span>
+                <span class="counter-label">WORKBOOKS</span>
+            </div>
+
+            <div class="col-md-3 stat-box">
+                <span class="counter-number js-counter" data-to="1000">0</span>
+                <span class="counter-label">CODEBOOKS</span>
+            </div>
+
+            <div class="col-md-3 stat-box">
+                <span class="counter-number js-counter" data-to="100">0</span>
+                <span class="counter-label">RESEARCH PROJECTS</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 
 
 
@@ -637,24 +710,65 @@
 
 
     </div>
+
+
+<!------------------------------Footer-------------------->
+
+
 </footer>
 
-			<script src="js/vendor/jquery-2.2.4.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" xintegrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-			<script src="js/vendor/bootstrap.min.js"></script>			
-			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-  			<script src="js/easing.min.js"></script>			
-			<script src="js/hoverIntent.js"></script>
-			<script src="js/superfish.min.js"></script>	
-			<script src="js/jquery.ajaxchimp.min.js"></script>
-			<script src="js/jquery.magnific-popup.min.js"></script>	
-			<script src="js/owl.carousel.min.js"></script>	
-			<script src="js/hexagons.min.js"></script>							
-			<script src="js/jquery.nice-select.min.js"></script>	
-			<script src="js/jquery.counterup.min.js"></script>
-			<script src="js/waypoints.min.js"></script>							
-			<script src="js/mail-script.js"></script>	
-			<script src="js/main.js"></script>	
+<!-- jQuery (only once!) -->
+<script src="js/vendor/jquery-2.2.4.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/easing.min.js"></script>
+<script src="js/hoverIntent.js"></script>
+<script src="js/superfish.min.js"></script>
+<script src="js/jquery.ajaxchimp.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/hexagons.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+
+<!-- COUNTER REQUIREMENTS (correct order) -->
+<script src="js/waypoints.min.js"></script>
+<script src="js/jquery.counterup.min.js"></script>
+
+<script src="js/mail-script.js"></script>
+
+
+<script src="js/main.js"></script>
+
+<script>
+$(document).ready(function () {
+
+    var fired = false;
+
+    $('#stats').waypoint(function() {
+        if (!fired) {
+            $('.js-counter').each(function () {
+                var $this = $(this),
+                    countTo = $this.attr('data-to');
+
+                $this.prop('Counter', 0).animate({
+                    Counter: countTo
+                }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function (now) {
+                        $this.text(Math.ceil(now));
+                    }
+                });
+            });
+
+            fired = true;
+        }
+    }, { offset: '80%' });
+
+});
+</script>
+
 
             
 		</body>
