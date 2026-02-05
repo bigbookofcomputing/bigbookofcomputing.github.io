@@ -23,13 +23,78 @@ Visit the live site: **[bigbookofcomputing.github.io](https://bigbookofcomputing
 
 ### A Living Knowledge Graph
 
-This isn't a static textbook—it's a **dynamic knowledge graph** where:
+This isn't a static textbook—it's a **dynamic knowledge graph** maintained by a multi-agent AI system. The entire book series is structured as a **giant hierarchical tree embedded within a richly connected graph**:
 
-- **Multi-Agent AI System** — Coordinated agents build, expand, and maintain content
-- **Real-Time Research Integration** — Reference agents scan arXiv, PubMed, and DOI databases
-- **Automatic Quality Control** — Consistency agents ensure notation and terminology coherence
-- **Cross-Volume Connections** — Knowledge graph agents link concepts across all volumes
-- **Continuous Updates** — Content evolves with the field, never becoming outdated
+#### Hierarchical Tree Structure
+
+At the top level, the knowledge graph organizes content into a pedagogical tree:
+
+```mermaid
+graph TD
+    Root["Big Book of Computing<br/>(Root Node)"]
+    Root --> V1["Volume I: Foundations"]
+    Root --> V2["Volume II: Simulation"]
+    Root --> V3["Volume III: Optimization & ML"]
+    Root --> V4["Volume IV: Quantum"]
+    
+    V1 --> C1["Chapter: Numerical Methods"]
+    C1 --> S1["Section: Root Finding"]
+    S1 --> SS1["Subsection: Newton-Raphson"]
+    SS1 --> L1["📄 Text: Algorithm"]
+    SS1 --> L2["📊 Figure: Convergence"]
+    SS1 --> L3["💻 Code: Implementation"]
+    SS1 --> L4["❓ Quiz: Complexity"]
+    
+    V2 --> C2["Chapter: Monte Carlo"]
+    V3 --> C3["Chapter: Gradient Descent"]
+    V4 --> C4["Chapter: Quantum Gates"]
+    
+    L1 -."prerequisite".-> C3
+    SS1 -."related to".-> C2
+    C1 -."foundation for".-> C4
+    
+    style Root fill:#1E3A8A,color:#fff
+    style V1 fill:#3B82F6,color:#fff
+    style V2 fill:#3B82F6,color:#fff
+    style V3 fill:#3B82F6,color:#fff
+    style V4 fill:#3B82F6,color:#fff
+    style L1 fill:#10B981,color:#fff
+    style L2 fill:#10B981,color:#fff
+    style L3 fill:#10B981,color:#fff
+    style L4 fill:#10B981,color:#fff
+```
+
+**Node Types in the Hierarchy:**
+- **📚 Volumes** — Top-level organization (4 volumes)
+- **📖 Chapters** — Major topic areas (~60 total)
+- **📝 Sections** — Subtopics within chapters (~400 total)
+- **📄 Subsections** — Detailed concepts (~1,200 total)
+- **🍃 Leaf Nodes** — Content atoms (~14,000 nodes):
+  - 📄 **Text** — Explanations and derivations
+  - 📊 **Figures** — Visualizations and plots
+  - 💻 **Code** — Runnable implementations
+  - ❓ **Questions** — Practice problems
+  - 📝 **Notes** — Insights and intuition
+  - 🔗 **References** — Citations and links
+
+#### Graph Connectivity
+
+While maintaining this tree backbone, the system weaves **thousands of cross-connections**:
+
+- **Prerequisite Links** — "Learn X before Y" relationships
+- **Related Concept Links** — "See also" connections across volumes
+- **Application Links** — Theory ↔ Practice connections
+- **Research Links** — Current frontiers and open problems
+
+This dual structure (tree + graph) enables both **linear learning paths** and **exploratory knowledge discovery**.
+
+#### Multi-Agent Construction
+
+- **Graph Architect Agents** — Design the hierarchical tree structure
+- **Content Generator Agents** — Populate leaf nodes with text, code, and figures
+- **Knowledge Weaving Agents** — Create cross-connections among nodes
+- **Quality Assurance Agents** — Validate graph consistency and coherence
+- **Update Agents** — Maintain the living graph as research evolves
 
 ### Comprehensive Computational Coverage
 
@@ -135,62 +200,86 @@ GitHub Pages automatically deploys from the main branch.
 
 The living knowledge graph currently contains:
 
-- **14,678** Graph nodes (concepts, equations, algorithms)
+- **14,678** Total graph nodes (concepts, equations, algorithms)
+- **4** Volume nodes at hierarchy root
+- **~60** Chapter nodes organizing major topics
+- **~400** Section nodes structuring content
+- **~1,200** Subsection nodes for detailed concepts
+- **~13,000** Leaf nodes (text, figures, code, questions)
+- **~28,000** Edges connecting nodes (hierarchical + cross-reference)
 - **534** WorkBook problem sets
 - **1,526** CodeBook implementations
 - **12,326** Research references and citations
+- **Maximum tree depth:** 5 levels (Root → Volume → Chapter → Section → Subsection → Leaf)
+- **Average connectivity:** 1.9 edges per node (beyond parent-child)
 
 *Stats updated dynamically by the multi-agent system*
 
 ## 🤖 Multi-Agent AI Pipeline
 
-The content is built and maintained by a coordinated system of specialized agents:
+The knowledge graph is built and maintained by a coordinated system of specialized agents, each playing a specific role in constructing the hierarchical tree and weaving the cross-connections:
 
 ### 1. Research Agents
 - Scan arXiv, PubMed, CrossRef, and scientific repositories
 - Classify documents by topic and extract metadata
 - Seed the knowledge graph with cutting-edge research
+- **Graph Role:** Identify new concepts to add as nodes
 
 ### 2. Concept Extraction Agents
 - Parse papers to identify equations, algorithms, and relationships
 - Build directed computational graphs of knowledge
 - Link entities across documents and domains
+- **Graph Role:** Extract potential nodes and edges from research
 
 ### 3. Graph Architect Agents
-- Design hierarchical structure (volumes → chapters → sections)
-- Ensure pedagogical flow and logical progression
-- Maintain cross-volume consistency
+- **Primary Role:** Design the hierarchical tree structure (volumes → chapters → sections → subsections)
+- Ensure pedagogical flow and logical progression through tree levels
+- Maintain cross-volume consistency in organization
+- Determine optimal tree depth and branching factor
+- **Graph Output:** The backbone tree structure (parent-child edges)
 
 ### 4. Content Generation Agents
 - Transform graph nodes into readable essays, workbooks, and code
 - Generate explanations, examples, and visualizations
 - Adapt content for different learning styles
+- **Graph Role:** Populate leaf nodes with text, figures, code, questions, and notes
 
 ### 5. Quality Assurance Agents
 - Check notation, terminology, and cross-references
 - Validate code implementations and numerical results
 - Ensure mathematical rigor and clarity
+- **Graph Role:** Validate node content and edge relationships for consistency
 
 ### 6. Knowledge Weaving Agents
-- Create connections between concepts across volumes
-- Build prerequisite chains and learning pathways
-- Generate "see also" suggestions
+- **Primary Role:** Create cross-connections among nodes beyond the tree hierarchy
+- Build prerequisite chains ("learn X before Y")
+- Generate related concept links ("see also")
+- Connect theory nodes to application nodes across volumes
+- Link historical context to modern implementations
+- **Graph Output:** Cross-reference edges, prerequisite edges, and application edges
+
+### 7. Update & Versioning Agents
+- Monitor new research and identify affected graph nodes
+- Incrementally update leaf nodes and connections
+- Maintain stable releases while allowing continuous expansion
+- **Graph Role:** Evolve the graph structure over time while preserving integrity
 
 ## 🎓 Learning Structure
 
-Each chapter across all volumes follows a consistent multi-modal structure:
+Each chapter across all volumes follows a consistent multi-modal structure designed to take you from theory to mastery:
 
-| Component | Purpose |
-|-----------|---------|
-| 📖 **Essay** | Deep theoretical understanding with intuition |
-| 📘 **WorkBook** | Guided exercises to build mastery |
-| 💻 **CodeBook** | Runnable implementations with comments |
-| 📝 **Quizzes** | Test comprehension of key concepts |
-| 💼 **Interviews** | Practice for technical interviews |
-| 🚀 **Projects** | End-to-end applications |
-| 🔬 **Research** | Connections to cutting-edge work |
+| Component | Purpose | Description |
+|-----------|---------|-------------|
+| 📖 **Main Chapter** | Deep theoretical understanding with intuition | Comprehensive explanations with detailed derivations, mathematical foundations, and conceptual intuition. Covers algorithms, methods, and underlying principles. |
+| 📘 **WorkBook** | Hands-on coding and design problems | Guided exercises with sample problems, step-by-step solutions, and progressive difficulty to build practical mastery. |
+| 💻 **CodeBook** | Runnable implementations with comments | Production-ready code in Python, NumPy, JAX, and PyTorch demonstrating best practices and optimization techniques. |
+| 📝 **Quizzes** | Test comprehension of key concepts | Concept quizzes and algorithm complexity questions to validate understanding. |
+| 💼 **Interview Questions** | Practice for technical interviews | Real-world interview scenarios and questions from top tech companies to prepare for technical interviews. |
+| 🚀 **Projects** | End-to-end applications | Complete implementations applying chapter concepts to real-world problems. |
+| 🔬 **Research** | Connections to cutting-edge work | Links to frontier research and current developments in the field. |
 
-This structure ensures learning from theory to practice to research.
+**Integrated Learning Path:** Theory → Practice → Code → Test → Master
+
 
 ## 🌐 Technologies
 
@@ -293,6 +382,9 @@ The Big Book of Computing embodies several key principles:
 5. **Community-Driven** — Built by and for the computational community
 6. **AI-Augmented** — Leveraging AI to maintain and expand content
 7. **Multi-Modal** — Learning through reading, doing, and exploring
+8. **Graph-Native** — Knowledge structured as a hierarchical tree within a connected graph
+
+> **Technical Details:** For a comprehensive technical explanation of the knowledge graph architecture, including node types, edge taxonomy, traversal algorithms, and multi-agent construction, see [ARCHITECTURE.md](ARCHITECTURE.md).
 
 ## 🙏 Acknowledgments
 
